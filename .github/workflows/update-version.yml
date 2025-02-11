@@ -30,7 +30,16 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add .
+
+          # Add only non-workflow files
+          git add -- ':!**/.github/workflows/**'
+
+          # Check if there are changes
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+    
           git commit -m "Update version to ${{ env.NEW_VERSION }}" || exit 0
           git push origin main
         env:
