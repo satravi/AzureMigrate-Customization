@@ -23,7 +23,7 @@ jobs:
 
       - name: Update Version in Files
         run: |
-          find . -type f -exec sed -i "s/VERSION=.*/VERSION=${{ env.NEW_VERSION }}/g" {} \;
+          find . -type f ! -path "./.github/workflows/*" -exec sed -i "s/VERSION=.*/VERSION=${{ env.NEW_VERSION }}/g" {} \;
           git status
 
       - name: Commit and Push Changes
