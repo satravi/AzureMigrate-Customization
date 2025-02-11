@@ -7,7 +7,7 @@
         LASTEDIT: Oct 26, 2021
 #>
 
-#VERSION=
+#VERSION=v0.0.2
 
 "Please enable appropriate RBAC permissions to the system identity of this automation account. Otherwise, the runbook may fail...""Please enable appropriate RBAC permissions to the system identity of this automation account. Otherwise, the runbook may fail..."
 
